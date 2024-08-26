@@ -10,8 +10,8 @@ oauth_endpoints("github")
 #
 #    Replace your key and secret below.
 myapp <- oauth_app("github",
-  key = "56b637a5baffac62cad9",
-  secret = "8e107541ae1791259e9987d544ca568633da2ebf"
+  key = "Ov23lingYyariTKfpPhr",
+  secret = "67d511f0712d2846a2b8af70aaa6ba3b7d8b2f1e"
 )
 
 # 3. Get OAuth credentials
@@ -19,11 +19,11 @@ github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
 
 # 4. Use API
 gtoken <- config(token = github_token)
-req <- GET("https://api.github.com/rate_limit", gtoken)
+req <- GET("https://api.github.com/users/jtleek/repos", gtoken)
 stop_for_status(req)
 content(req)
 
 # OR:
-req <- with_config(gtoken, GET("https://api.github.com/rate_limit"))
+req <- with_config(gtoken, GET("https://api.github.com/users/jtleek/repos"))
 stop_for_status(req)
 content(req)
